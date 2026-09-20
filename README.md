@@ -1,0 +1,3 @@
+# MernokiSzoftver
+
+Web application project.
