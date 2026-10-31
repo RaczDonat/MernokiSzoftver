@@ -1,0 +1,240 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+:root {
+  --radius: 0.75rem;
+  --brand: oklch(0.556 0.163 262);
+  --brand-deep: oklch(0.435 0.148 263);
+  --ink: oklch(0.243 0.043 259);
+  --mist: oklch(0.949 0.015 250);
+  --glass: oklch(1 0 0 / 55%);
+  --glass-border: oklch(1 0 0 / 70%);
+  --success: oklch(0.596 0.118 163);
+  --danger: oklch(0.63 0.19 19);
+  --background: oklch(0.973 0.011 250);
+  --foreground: var(--ink);
+  --card: oklch(1 0 0 / 55%);
+  --muted-foreground: oklch(0.52 0.03 259);
+  --accent: oklch(0.776 0.153 73);
+  --accent-foreground: oklch(0.99 0.004 250);
+  --primary-foreground: oklch(0.99 0.004 250);
+  --border: oklch(1 0 0 / 70%);
+  --page-backdrop:
+    radial-gradient(1200px 600px at 12% -10%, oklch(0.972 0.014 250) 0%, transparent 60%),
+    radial-gradient(1000px 700px at 100% 0%, oklch(0.951 0.022 250) 0%, transparent 55%),
+    linear-gradient(160deg, oklch(0.982 0.008 250) 0%, oklch(0.949 0.015 250) 100%);
+  --bs-primary: #4f5ea8;
+  --bs-primary-rgb: 79, 94, 168;
+  --bs-body-color: var(--ink);
+  --bs-body-bg: transparent;
+  --bs-border-color: var(--border);
+  --bs-link-color: #354987;
+  --bs-link-hover-color: #263a73;
+}
+
+* { border-color: var(--border); }
+body {
+  min-width: 320px;
+  background: var(--page-backdrop);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+.voyara-antialiased { -webkit-font-smoothing: antialiased; }
+.font-sans { font-family: "Plus Jakarta Sans", system-ui, sans-serif; }
+.font-display { font-family: "Fraunces", Georgia, serif; }
+.glass-panel {
+  border: 1px solid var(--glass-border);
+  background-color: var(--glass);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 16px 40px -28px color-mix(in srgb, var(--brand-deep) 60%, transparent);
+}
+.shadow-glass { box-shadow: 0 24px 60px -30px color-mix(in srgb, var(--brand-deep) 60%, transparent); }
+.shadow-soft { box-shadow: 0 16px 40px -28px color-mix(in srgb, var(--brand-deep) 60%, transparent); }
+.shadow-nav { box-shadow: 0 18px 50px -24px color-mix(in srgb, var(--brand-deep) 55%, transparent); }
+
+.voyara-bg-background { background-color: var(--background) !important; }
+.voyara-bg-card { background-color: var(--card) !important; }
+.voyara-bg-primary, .voyara-bg-brand { background-color: var(--brand) !important; }
+.voyara-bg-brand-deep { background-color: var(--brand-deep) !important; }
+.voyara-bg-brand-10 { background-color: color-mix(in srgb, var(--brand) 10%, transparent) !important; }
+.voyara-bg-brand-20 { background-color: color-mix(in srgb, var(--brand) 20%, transparent) !important; }
+.voyara-bg-brand-90 { background-color: color-mix(in srgb, var(--brand) 90%, transparent) !important; }
+.voyara-bg-accent { background-color: var(--accent) !important; }
+.voyara-bg-accent-20 { background-color: color-mix(in srgb, var(--accent) 20%, transparent) !important; }
+.voyara-bg-accent-25 { background-color: color-mix(in srgb, var(--accent) 25%, transparent) !important; }
+.voyara-bg-accent-90 { background-color: color-mix(in srgb, var(--accent) 90%, transparent) !important; }
+.voyara-bg-success { background-color: var(--success) !important; }
+.voyara-bg-success-15 { background-color: color-mix(in srgb, var(--success) 15%, transparent) !important; }
+.voyara-bg-destructive { background-color: var(--danger) !important; }
+.voyara-bg-destructive-10 { background-color: color-mix(in srgb, var(--danger) 10%, transparent) !important; }
+.voyara-bg-destructive-15 { background-color: color-mix(in srgb, var(--danger) 15%, transparent) !important; }
+.voyara-bg-destructive-20 { background-color: color-mix(in srgb, var(--danger) 20%, transparent) !important; }
+.voyara-bg-ink { background-color: var(--ink) !important; }
+.voyara-bg-ink-10 { background-color: color-mix(in srgb, var(--ink) 10%, transparent) !important; }
+.voyara-bg-ink-30 { background-color: color-mix(in srgb, var(--ink) 30%, transparent) !important; }
+.voyara-bg-ink-85 { background-color: color-mix(in srgb, var(--ink) 85%, transparent) !important; }
+.voyara-bg-mist { background-color: var(--mist) !important; }
+.voyara-bg-mist-40 { background-color: color-mix(in srgb, var(--mist) 40%, transparent) !important; }
+.voyara-bg-mist-60 { background-color: color-mix(in srgb, var(--mist) 60%, transparent) !important; }
+
+.voyara-text-background, .voyara-text-foreground, .voyara-text-ink { color: var(--ink) !important; }
+.voyara-text-primary-foreground, .voyara-text-accent-foreground { color: var(--primary-foreground) !important; }
+.voyara-text-muted-foreground { color: var(--muted-foreground) !important; }
+.voyara-text-brand-deep { color: var(--brand-deep) !important; }
+.voyara-text-brand-deep-40 { color: color-mix(in srgb, var(--brand-deep) 40%, transparent) !important; }
+.voyara-text-brand-deep-60 { color: color-mix(in srgb, var(--brand-deep) 60%, transparent) !important; }
+.voyara-text-accent { color: var(--accent) !important; }
+.voyara-text-destructive { color: var(--danger) !important; }
+.voyara-text-success { color: var(--success) !important; }
+.voyara-text-ink-40 { color: color-mix(in srgb, var(--ink) 40%, transparent) !important; }
+.voyara-text-ink-50 { color: color-mix(in srgb, var(--ink) 50%, transparent) !important; }
+.voyara-text-ink-60 { color: color-mix(in srgb, var(--ink) 60%, transparent) !important; }
+.voyara-text-ink-70 { color: color-mix(in srgb, var(--ink) 70%, transparent) !important; }
+.voyara-text-ink-80 { color: color-mix(in srgb, var(--ink) 80%, transparent) !important; }
+.voyara-border, .voyara-border-input { border-color: var(--border) !important; }
+.voyara-border-ink-10 { border-color: color-mix(in srgb, var(--ink) 10%, transparent) !important; }
+.voyara-border-ink-5 { border-color: color-mix(in srgb, var(--ink) 5%, transparent) !important; }
+.voyara-outline-none { outline: 0 !important; }
+
+.voyara-grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.voyara-grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.voyara-grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.voyara-grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.voyara-grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.voyara-col-span-2-sm { grid-column: span 2; }
+.voyara-max-w-md { max-width: 28rem; }
+.voyara-max-w-lg { max-width: 32rem; }
+.voyara-menu-width { width: min(16rem, calc(100vw - 2rem)); }
+.voyara-min-w-640 { min-width: 640px; }
+.voyara-aspect-16-10 { aspect-ratio: 16 / 10; }
+.voyara-trip-card-image { aspect-ratio: 2 / 1; }
+.voyara-object-cover { object-fit: cover; }
+.voyara-place-center { place-items: center; }
+.voyara-size-1 { width: .25rem; height: .25rem; }
+.voyara-size-8 { width: 2rem; height: 2rem; }
+.voyara-size-9 { width: 2.25rem; height: 2.25rem; }
+.voyara-size-10 { width: 2.5rem; height: 2.5rem; }
+.voyara-size-360 { width: 22.5rem; height: 22.5rem; }
+.voyara-size-420 { width: 26.25rem; height: 26.25rem; }
+.voyara-size-460 { width: 28.75rem; height: 28.75rem; }
+.voyara-w-4 { width: 1rem; }
+.voyara-h-0-5 { height: .125rem; }
+.voyara-h-2 { height: .5rem; }
+.voyara-gap-1-5 { gap: .375rem; }
+.voyara-gap-2-5 { gap: .625rem; }
+.voyara-gap-9 { gap: 2.25rem; }
+.voyara-px-3-5 { padding-inline: .875rem; }
+.voyara-py-1-5 { padding-block: .375rem; }
+.voyara-py-2-5 { padding-block: .625rem; }
+.voyara-py-3-5 { padding-block: .875rem; }
+.voyara-mt-1-5 { margin-top: .375rem; }
+.voyara-mt-5 { margin-top: 1.25rem; }
+.voyara-mt-8 { margin-top: 2rem; }
+.voyara-mt-10 { margin-top: 2.5rem; }
+.voyara-mb-5 { margin-bottom: 1.25rem; }
+.voyara-p-1-5 { padding: .375rem; }
+.voyara-p-8 { padding: 2rem; }
+.voyara-p-10 { padding: 2.5rem; }
+.voyara-pt-7 { padding-top: 1.75rem; }
+.voyara-pt-8 { padding-top: 2rem; }
+.voyara-pt-10 { padding-top: 2.5rem; }
+.voyara-pb-16 { padding-bottom: 4rem; }
+.voyara-leading-none { line-height: 1; }
+.voyara-leading-tight { line-height: 1.25; }
+.voyara-leading-105 { line-height: 1.05; }
+.voyara-tracking-tight { letter-spacing: -.025em; }
+.voyara-tracking-wide { letter-spacing: .025em; }
+.voyara-tracking-022 { letter-spacing: .22em; }
+.voyara-text-xs { font-size: .75rem; }
+.voyara-text-xl { font-size: 1.25rem; }
+.voyara-text-3xl { font-size: 1.875rem; }
+.voyara-text-4xl { font-size: 2.25rem; }
+.voyara-text-5xl { font-size: 3rem; }
+.voyara-text-7xl { font-size: 4.5rem; }
+.voyara-text-9 { font-size: 9px; }
+.voyara-text-10 { font-size: 10px; }
+.voyara-text-11 { font-size: 11px; }
+.voyara-text-19 { font-size: 19px; }
+.voyara-z-10 { z-index: 10; }
+.voyara-z-20 { z-index: 20; }
+.voyara-z-50 { z-index: 1050; }
+.voyara-left-3 { left: .75rem; }
+.voyara-left-third { left: 33.333333%; }
+.voyara-top-3 { top: .75rem; }
+.voyara-top-third { top: 33.333333%; }
+.voyara-top-full { top: 100%; }
+.voyara-neg-left-24 { left: -6rem; }
+.voyara-neg-right-32 { right: -8rem; }
+.voyara-neg-top-24 { top: -6rem; }
+.voyara-blur-3xl { filter: blur(64px); }
+.voyara-pointer-none { pointer-events: none; }
+.voyara-transition { transition: all .2s ease; }
+.voyara-transition-colors { transition: color .2s ease, background-color .2s ease, border-color .2s ease; }
+.voyara-hover-bg-card:hover { background-color: var(--card) !important; }
+.voyara-hover-bg-brand-deep:hover { background-color: var(--brand-deep) !important; }
+.voyara-hover-bg-mist:hover { background-color: var(--mist) !important; }
+.voyara-hover-bg-accent:hover { background-color: var(--accent) !important; }
+.voyara-hover-bg-destructive-20:hover { background-color: color-mix(in srgb, var(--danger) 20%, transparent) !important; }
+.voyara-hover-bg-primary-90:hover { background-color: color-mix(in srgb, var(--brand) 90%, transparent) !important; }
+.voyara-hover-underline:hover { text-decoration: underline !important; }
+.voyara-hover-text-ink:hover { color: var(--ink) !important; }
+.voyara-hover-lift:hover { transform: translateY(-.25rem); }
+.voyara-space-y-4 > * + * { margin-top: 1rem; }
+.voyara-last-border-0:last-child { border: 0 !important; }
+.voyara-focus-ring:focus { box-shadow: 0 0 0 .25rem color-mix(in srgb, var(--brand) 25%, transparent); }
+.voyara-accent-brand { accent-color: var(--brand); }
+.voyara-disabled-60:disabled { opacity: .6; }
+.voyara-translate-y-1-5 { transform: translateY(.375rem); }
+.voyara-neg-translate-y-1-5 { transform: translateY(-.375rem); }
+.voyara-rotate-45 { transform: rotate(45deg); }
+.voyara-neg-rotate-45 { transform: rotate(-45deg); }
+.voyara-translate-y-1-5.voyara-rotate-45 { transform: translateY(.375rem) rotate(45deg); }
+.voyara-neg-translate-y-1-5.voyara-neg-rotate-45 { transform: translateY(-.375rem) rotate(-45deg); }
+.voyara-cursor-not-allowed { cursor: not-allowed; }
+.voyara-rounded-2xl { border-radius: 1rem; }
+.voyara-rounded-3xl { border-radius: 1.5rem; }
+.voyara-rounded-4xl { border-radius: 2rem; }
+
+.form-control, .form-select {
+  color: var(--ink);
+  border-color: color-mix(in srgb, var(--ink) 13%, transparent);
+  border-radius: .75rem;
+  background-color: color-mix(in srgb, white 74%, transparent);
+}
+.form-control:focus, .form-select:focus {
+  color: var(--ink);
+  border-color: var(--brand);
+  background-color: white;
+  box-shadow: 0 0 0 .2rem color-mix(in srgb, var(--brand) 18%, transparent);
+}
+.btn-voyara { color: var(--primary-foreground); background: var(--brand); border: 0; }
+.btn-voyara:hover { color: var(--primary-foreground); background: var(--brand-deep); }
+.btn-voyara:disabled { opacity: .6; }
+
+@media (min-width: 576px) {
+  .voyara-grid-cols-2-sm { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .voyara-col-span-2-sm { grid-column: span 2; }
+  .voyara-px-sm-4 { padding-inline: 1rem; }
+  .voyara-px-sm-5 { padding-inline: 1.25rem; }
+  .voyara-pr-sm-3 { padding-right: .75rem; }
+  .voyara-pt-sm-5 { padding-top: 1.25rem; }
+  .voyara-py-sm-3-5 { padding-block: .875rem; }
+  .voyara-text-4xl-sm { font-size: 2.25rem; }
+}
+@media (min-width: 768px) {
+  .voyara-grid-cols-2-md { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .voyara-grid-cols-4-md { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .voyara-flex-row-md { flex-direction: row; }
+  .voyara-items-end-md { align-items: flex-end; }
+  .voyara-justify-between-md { justify-content: space-between; }
+  .voyara-text-5xl-md { font-size: 3rem; }
+}
+@media (min-width: 992px) {
+  .voyara-grid-cols-2-lg { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .voyara-grid-cols-4-lg { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .voyara-grid-cols-5-lg { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
