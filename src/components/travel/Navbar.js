@@ -1,0 +1,17 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useState } from "react";
+import { Link } from "@tanstack/react-router";
+import { AccountMenu } from "./AccountMenu";
+import { useCurrentUser } from "@/lib/travel/store";
+const links = [
+    { to: "/", label: "Dashboard" },
+    { to: "/trips", label: "Utazások" },
+    { to: "/bookings", label: "Foglalásaim" },
+    { to: "/admin", label: "Admin" },
+];
+export function Navbar() {
+    const isAdmin = useCurrentUser()?.role === "admin";
+    const [open, setOpen] = useState(false);
+    const visible = links.filter((l) => isAdmin || l.to !== "/admin");
+    return (_jsxs("header", { className: "position-relative voyara-z-20 mx-auto container px-3 pt-3 voyara-px-sm-4 voyara-pt-sm-5", children: [_jsxs("div", { className: "glass-panel d-flex align-items-center justify-content-between voyara-rounded-2xl px-3 voyara-py-2-5 voyara-px-sm-5 voyara-py-sm-3-5 shadow-nav", children: [_jsxs("div", { className: "d-flex align-items-center voyara-gap-9", children: [_jsxs(Link, { to: "/", className: "d-flex align-items-center voyara-gap-2-5", children: [_jsx("div", { className: "d-grid voyara-size-9 voyara-place-center rounded-4 voyara-bg-brand font-display fs-5 fw-semibold voyara-text-primary-foreground shadow-soft", children: "V" }), _jsxs("div", { className: "voyara-leading-none", children: [_jsx("div", { className: "font-display voyara-text-19 fw-semibold voyara-tracking-tight", children: "Voyara" }), _jsx("div", { className: "voyara-text-9 text-uppercase voyara-tracking-022 voyara-text-brand-deep-60", children: "Travel" })] })] }), _jsx("nav", { className: "d-none align-items-center gap-1 small fw-medium voyara-text-ink-70 d-md-flex", children: visible.map((link) => (_jsx(Link, { to: link.to, activeOptions: { exact: link.to === "/" }, activeProps: { className: "voyara-bg-card voyara-text-ink shadow-sm" }, className: "rounded-3 voyara-px-3-5 py-2 voyara-transition voyara-hover-bg-card", children: link.label }, link.to))) })] }), _jsxs("div", { className: "d-flex align-items-center gap-3", children: [_jsx(Link, { to: "/trips", className: "glass-panel d-none rounded-4 voyara-px-3-5 py-2 small fw-medium voyara-text-ink-80 voyara-transition voyara-hover-bg-card d-sm-block", children: "Keres\u00E9s" }), _jsx(AccountMenu, {}), _jsx("button", { type: "button", "aria-label": open ? "Menü bezárása" : "Menü megnyitása", "aria-expanded": open, onClick: () => setOpen((o) => !o), className: "glass-panel d-grid voyara-size-10 voyara-place-center rounded-4 d-md-none", children: _jsxs("span", { className: "d-flex voyara-w-4 flex-column gap-1", children: [_jsx("span", { className: `voyara-h-0-5 rounded-2 voyara-bg-ink voyara-transition ${open ? "voyara-translate-y-1-5 voyara-rotate-45" : ""}` }), _jsx("span", { className: `voyara-h-0-5 rounded-2 voyara-bg-ink voyara-transition ${open ? "opacity-0" : ""}` }), _jsx("span", { className: `voyara-h-0-5 rounded-2 voyara-bg-ink voyara-transition ${open ? "voyara-neg-translate-y-1-5 voyara-neg-rotate-45" : ""}` })] }) })] })] }), open && (_jsx("nav", { className: "glass-panel mt-2 d-flex flex-column gap-1 voyara-rounded-2xl p-2 small fw-medium shadow-nav d-md-none", children: visible.map((link) => (_jsx(Link, { to: link.to, onClick: () => setOpen(false), activeOptions: { exact: link.to === "/" }, activeProps: { className: "voyara-bg-card voyara-text-ink" }, className: "rounded-4 px-4 py-3 voyara-text-ink-80 voyara-transition voyara-hover-bg-card", children: link.label }, link.to))) }))] }));
+}
